@@ -27,6 +27,21 @@ def ej3():
     # para cumplir con el enunciado del ejercicio
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
+    with open (archivo, "r") as csvfile:
+        stock = list(csv.DictReader(csvfile))
+
+    total_tornillos = 0
+
+    for i in range(len(stock)):
+        lista_stock = stock[i]
+        for k, v in lista_stock.items():
+            if k == "tornillos":
+                cantidad_tornillos = v
+                total_tornillos += int(cantidad_tornillos)
+
+    print("La cantidad de tornillos es de", total_tornillos)
+
+
     
 
 
@@ -47,6 +62,23 @@ def ej4():
     # utilizando "try except", tema que se verá la clase que viene.
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
+    with open (archivo, "r") as csvfile:
+        edificio = list(csv.DictReader(csvfile))
+
+    dos_ambientes = 0
+    tres_ambientes = 0
+
+    for i in range(len(edificio)):
+        piso = edificio[i]
+        for k, v in piso.items():
+            if k == "ambientes":
+                if "2" in v:
+                    dos_ambientes += 1
+                elif "3" in v:
+                    tres_ambientes += 1
+
+    print("Hay", dos_ambientes, "departamentos de 2 ambientes y", tres_ambientes, "de 3 ambientes")
+
 
 
 if __name__ == '__main__':

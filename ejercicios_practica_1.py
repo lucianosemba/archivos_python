@@ -17,13 +17,13 @@ def ej1():
     # Crear un diccionario vacio
     # el diccionario vacio debe llamarse "stock"
     
-    # stock = ....
+    stock = {}
 
     # Luego de crear el diccionario completelo
     # con el siguiente stock:
-    # tornillos = 100
-    # tuercas = 150
-    # arandelas = 300
+    stock ["tornillos"] = 100
+    stock ["tuercas"] = 150
+    stock ["arandelas"] = 300
 
     # Los nombres tornillos, tuercas y arandelas
     # son las claves (keys) del diccionario
@@ -32,6 +32,7 @@ def ej1():
     # Una vez armado el diccionario imprimirlo en pantalla con print
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
+    print(stock)
 
 
 def ej2():
@@ -40,7 +41,7 @@ def ej2():
     # como una base de datos. Comenzaremos con un diccionario de stock
     # de nuestros productos en cero:
     
-    strock = {'tornillos': 0, 'tuercas': 0, 'arandelas': 0}
+    stock = {'tornillos': 0, 'tuercas': 0, 'arandelas': 0}
 
     # Paso 1:
     # Crear un bucle utilizando while que se ejecute de forma infinita
@@ -66,6 +67,25 @@ def ej2():
     # imprimir en pantalla con print el diccionario con el stock final
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
+
+    while True:
+        
+        producto = str(input("Que producto desea agregar?: "))
+        if producto in stock:
+            nuevo_stock = int(input("Cuánto desea agregar?: "))
+            if producto == "tornillos":
+                stock["tornillos"] += nuevo_stock
+            elif producto == "tuercas":
+                stock["tuercas"] += nuevo_stock
+            else:
+                stock["arandelas"] += nuevo_stock
+        elif (producto == "Fin") or (producto == "fin"):
+            break
+        else:
+            print("El producto que desea agregar no existe, intente nuevamente.")
+
+    print(stock)
+
 
 
 if __name__ == '__main__':
